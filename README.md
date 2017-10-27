@@ -1,9 +1,19 @@
 # nagios-apcupsd
 Nagios plugin for APC UPS software apcupsd to query for status and chart performance graphs
 
-check_apcaccess.py is used to check a APC UPS using the apcaccess utility.
-https://github.com/HireChrisJohnston/nagios-apcupsd
+check_apcaccess.py is used to check a APC UPS using the apcaccess utility for Nagios.
 
+
+### Description
+Used for montioring American Power Conversion APC UPS using apcupsd (3.14.12) on RaspberryPi 2B+
+
+Power consumption, watts, is calculated because the UPS that I had to develop with didn't report that value but was extracted dividing `load %` and the maximum load `NOMPOWER` value.
+
+### Options
+
+If specifying the -T or -t  for time based alerts you must define them both. When using time based thresholds performance data will be charted in minutes.
+
+~~~
 Options:
   --version             show program's version number and exit
   -h, --help            show this help message and exit
@@ -53,3 +63,7 @@ Options:
     -U WATTS, --consumption-critical=WATTS
                         Defines power consumption critical threshold in watts
                         (default: empty)
+~~~
+
+### Credits
+* https://github.com/stdevel
