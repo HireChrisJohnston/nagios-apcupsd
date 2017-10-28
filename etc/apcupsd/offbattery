@@ -1,0 +1,6 @@
+#!/bin/sh
+/usr/local/nrdp/clients/nrds/nrds.pl -H 'RaspberryPi' >/dev/null
+echo 'cpu0' | tee /sys/class/leds/led1/trigger>/dev/null
+echo 'mmc0' | tee /sys/class/leds/led0/trigger >/dev/null
+
+exit 0

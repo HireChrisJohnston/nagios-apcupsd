@@ -1,0 +1,8 @@
+#!/bin/sh
+
+/usr/local/nrdp/clients/nrds/nrds.pl -H 'RaspberryPi' >/dev/null
+
+echo 'heartbeat' | tee /sys/class/leds/led1/trigger  >/dev/null
+echo 'timer' | tee /sys/class/leds/led0/trigger  >/dev/null
+
+exit 0
