@@ -24,11 +24,11 @@ case "$1" in
        for conf in /etc/apcupsd/apcupsd*.conf ; do
           inst=`basename $conf`
           echo -n "Shutting down UPS monitoring ($inst):"
-	PID=$(cat /var/run/apcupsd-$inst.pid)
+	  PID=$(cat /var/run/apcupsd-$inst.pid)
           kill -TERM  $PID
           echo
-#          rm -f /var/run/apcupsd-$inst.pid
- #         rm -f /var/lock/subsys/apcupsd-$inst
+          rm -f /var/run/apcupsd-$inst.pid
+          rm -f /var/lock/subsys/apcupsd-$inst
        done
        ;;
     restart|force-reload)
