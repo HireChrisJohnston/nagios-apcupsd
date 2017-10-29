@@ -10,12 +10,10 @@ Following items must be different for each configuration instance
 * STATFILE /var/log/apcupsd.status
 * EVENTSFILE /var/log/apcupsd.events
 * NISPORT 3551 (if using apcaccess)
-
+* DEVICE (specifiying the device harware connection if required by UPSTYPE)
 
 # Use udev rules
-If connected via USB or other physical connection to the host running apcupsd, then setup some rules so you can count on 
-references using DEVICE are static. I haven't quite figured it out but these did not acutally work for me, however it is the concept
-that counts.
+If connected via USB or other physical connection to the host running apcupsd then setup some udev rules so you can count on the DEVICE  configuration references being static, no matter which port the indivdual UPSs are plugged into. I haven't quite figured it out but these did not acutally work for me, however it is the concept that counts.
 
     KERNEL=="hiddev*", ATTRS{manufacturer}=="Amercian Power Conversion", ATTRS{serial}=="4B1720P29823  ", OWNER="root", SYMLINK+="usb/ups-bx1300gg"
 
