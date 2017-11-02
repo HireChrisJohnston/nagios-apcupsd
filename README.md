@@ -4,7 +4,7 @@ Nagios plugin for APC UPS software apcupsd to query for status and chart perform
 ## Design
 
 * check_apcaccess.py is used to check a APC UPS using the apcaccess client utility.
-* * At startup load multiple apcupsd instances, if present, to monitor multiple UPS hardware devices using [apcupsd-multi](nagios-apcupsd/etc/init.d/apcupsd-multi) script
+* * At startup multiple apcupsd instances, if config present, to monitor multiple UPS hardware devices on a single host using [apcupsd-multi](etc/init.d/apcupsd-multi) systemd init script
 * NRPD for passive check to notify of power loss or gain based on the apcups configuration
 * NRPE for active checks at regular intervals under 'normal' conditions [and other types of checks](https://github.com/HireChrisJohnston/nagios-plugins)
 * * [etc/apcupsd/onbattery](etc/apcupsd/onbattery)
@@ -14,7 +14,7 @@ For fast response at the expense of a higher Nagios server load when using passi
 ~~~
       check_result_reaper_frequency=1
 ~~~
-Other settings such as refresh rates under 'Performance' in Nagios, can futher provide instant visual indication in Nagios XI of power changes.
+Other settings such as refresh rates under 'Performance' in Nagios, can futher provide instant visual indication in Nagios XI of power fluxuations and the status of the battery backup.
 
 
 ### Description
