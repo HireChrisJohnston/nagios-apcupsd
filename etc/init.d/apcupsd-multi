@@ -1,11 +1,17 @@
-#! /bin/sh
-#
-# apcupsd      This shell script takes care of starting and stopping
-#              the apcupsd UPS monitoring daemon.
-#
-# chkconfig: 2345 60 99
-# description: apcupsd monitors power and takes action if necessary
-#
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          apcupsd-multi
+# Required-Start:    $local_fs $remote_fs $network $syslog $named
+# Required-Stop:     $local_fs $remote_fs $network $syslog $named
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# X-Interactive:     false
+# Short-Description: APC UPS daemon
+# Description:       Start the web server and associated helpers
+#  This script will start apcupsd, and will read all instances of apcupsd*.conf.
+# and start daemons for each configuration file found
+### END INIT INFO
+
 
 case "$1" in
     start)
